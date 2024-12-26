@@ -3,7 +3,6 @@ export class UI {
     this.calculator = calculator;
     this.gradesContainer = document.getElementById("gradesContainer");
     this.addGradeButton = document.getElementById("addGrade");
-    this.gpa10Element = document.getElementById("gpa10");
     this.gpa4Element = document.getElementById("gpa4");
 
     this.addGradeButton.addEventListener("click", () => this.addGradeRow());
@@ -69,9 +68,7 @@ export class UI {
       })
       .filter((grade) => grade.grade && grade.credits);
 
-    const { gpa10, gpa4 } = this.calculator.calculateGPA(grades);
-
-    this.animateValue(this.gpa10Element, gpa10);
+    const { gpa4 } = this.calculator.calculateGPA(grades);
     this.animateValue(this.gpa4Element, gpa4);
   }
 
@@ -106,7 +103,6 @@ export class UI {
   }
 
   showNotification(message) {
-    // Implementação futura de notificações
     alert(message);
   }
 
